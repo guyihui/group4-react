@@ -1,0 +1,26 @@
+{
+  "name": "group4",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "react-dom": "^16.1.1",
+    "webpack": "^3.8.1"
+  },
+  "devDependencies": {
+    "webpack": "^3.8.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "group4",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guyihui/group4-react.git"
+  },
+  "bugs": {
+    "url": "https://github.com/guyihui/group4-react/issues"
+  },
+  "homepage": "https://github.com/guyihui/group4-react#readme",
+  "description": ""
+}
