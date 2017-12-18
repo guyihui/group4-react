@@ -14,6 +14,7 @@ class ExpressApp extends Component {
         if (!express) return
         if (!express.username) return alert('请输入用户名')
         if (!express.content) return alert('请输入快递信息')
+        if (!express.phone) return alert('请输入手机号码')
         this.state.expresses.push(express)
         this.setState({
             expresses: this.state.expresses
