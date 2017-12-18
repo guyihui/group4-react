@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 class ExpressInput extends Component {
+	
+  static propTypes = {
+    onSubmit: PropTypes.func
+  }
+
     constructor () {
         super()
         this.state = {
@@ -10,7 +16,47 @@ class ExpressInput extends Component {
         }
     }
 
-    handleUsernameChange (event) {
+   componentDidMount () {
+     this.textarea.focus()
+   }
+
+  componentWillMount () {
+    this._loadUsername()
+    this._loadPhone()
+  }
+
+  _loadUsername () {
+    const username = localStorage.getItem('username')
+    if (username) {
+      this.setState({ username })
+    }
+  }
+
+ _loadPhone () {
+    const phone = localStorage.getItem('phone')
+    if (phone) {
+      this.setState({ phone })
+    }
+  }
+
+   _saveUsername (username) {
+     localStorage.setItem('username', username)
+   }
+ 
+  _savePhone (phone) {
+     localStorage.setItem('phone', phone)
+   }
+
+
+   handleUsernameBlur (event) {
+     this._saveUsername(event.target.value)
+   }    
+
+   handlePhoneBlur (event) {
+     this._savePhone(event.target.value)
+   }    
+    
+   handleUsernameChange (event) {
         this.setState({
             username: event.target.value
         })
@@ -33,9 +79,13 @@ class ExpressInput extends Component {
 
     handleSubmit () {
         if (this.props.onSubmit) {
-            const { username,phone, content } = this.state
-            this.props.onSubmit({username, phone,content })
-        }
+     	  this.props.onSubmit({
+		username: this.state.username,
+		phone:this.state.phone,
+		content: this.state.content,
+		createdTime: +new Date()
+	      })
+    }
         this.setState({ content: '' })
     }
 
@@ -46,9 +96,10 @@ class ExpressInput extends Component {
                 <div className='express-field'>
                     <span className='express-field-name'>用户名：</span>
                     <div className='express-field-input'>
-                        <input
-                        value={this.state.username}
-                        onChange={this.handleUsernameChange.bind(this)} />
+                         <input
+			      value={this.state.username}
+			      onBlur={this.handleUsernameBlur.bind(this)}
+			      onChange={this.handleUsernameChange.bind(this)} />
                     </div>
                 </div>
 
@@ -56,17 +107,19 @@ class ExpressInput extends Component {
                 <span className='express-field-name'>手机号：</span>
             <div className='express-field-input'>
                 <input
-                value={this.state.phone}
-                onChange={this.handlePhoneChange.bind(this)} />
+                 value={this.state.phone}
+	  	 onBlur={this.handlePhoneBlur.bind(this)}
+		 onChange={this.handlePhoneChange.bind(this)} />
             </div>
             </div>
 
                 <div className='express-field'>
                     <span className='express-field-name'>快递信息：</span>
                     <div className='express-field-input'>
-                        <textarea
-                        value={this.state.content}
-                        onChange={this.handleContentChange.bind(this)} />
+                         <textarea
+			      ref={(textarea) => this.textarea = textarea}
+			      value={this.state.content}
+			      onChange={this.handleContentChange.bind(this)} />
                     </div>
                 </div>
 

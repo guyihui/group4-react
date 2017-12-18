@@ -82,6 +82,7 @@ body {
 
 /* 快递信息组件样式 */
 .express {
+  position: relative;
   display: flex;
   border-bottom: 1px solid #f1f1f1;
   margin-bottom: 10px;
@@ -89,10 +90,34 @@ body {
   min-height: 50px;
 }
 
-.express .express-user {
+.express-user {
   flex-shrink: 0;
 }
 
+.express-username {
+ color: #00a3cf;
+ font-style: italic;
+}
+	
+
+.express-createdtime {
+  padding-right: 5px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 5px;
+  font-size: 12px;
+}
+	
+.express-delete {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: transparent;
+  font-size: 12px;
+  cursor: pointer;
+}
+	
 .express span {
   color: #00a3cf;
   font-style: italic;
