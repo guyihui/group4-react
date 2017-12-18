@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import './Contact.css';
 
 /*class App extends Component {
   render() {
@@ -20,7 +20,7 @@ import './App.css';
 
 export default App;*/
 
-class App extends Component {
+class Contact extends Component {
   ConfirmTake () {
     alert("请联系手机号为18912345678同学获取提货码，谢谢")
   }
@@ -52,4 +52,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Contact;
