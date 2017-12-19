@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Router, Route } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 //import {withRouter} from "react-router-dom";
 import createBrowserHistory from 'history/createBrowserHistory'
 
@@ -13,8 +13,10 @@ var history = createBrowserHistory()
 
 ReactDOM.render((
   <Router history={history}>
-    <Route path="/" component={ExpressApp}/>
-    <Route path='/contact' component={Contact}/>
+    <Switch>
+      <Route exact path="/" component={ExpressApp}/>
+      <Route path="/contact" component={Contact}/>
+    </Switch>
   </Router>
 ),
   //<ExpressApp />,

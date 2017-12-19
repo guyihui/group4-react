@@ -1,28 +1,20 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types'
 import './Contact.css';
 
-/*class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
-
-export default App;*/
-
 class Contact extends Component {
+
+  static contextTypes = {
+      router: PropTypes.object
+  }
+
   ConfirmTake () {
-    alert("请联系手机号为18912345678同学获取提货码，谢谢")
+    alert('请联系手机号为' + this.props.location.query.phone +
+        '的'+ this.props.location.query.username + '同学获取提货码，谢谢')
+  }
+
+  back (){
+    this.context.router.history.go(-1);
   }
 
   render () {
@@ -34,17 +26,20 @@ class Contact extends Component {
         {/*pretend to have user, need to be fetched from main page*/}
         <body>
         <div className='chosenOrder'>
-          <p className='detail'>
-            快递详情： <br/>
-          </p>
           <p className='OrderDetail'>
-            姓名：小明 手机尾号：5678 快递点：爱心街区134号
+            姓名：{this.props.location.query.username} <br/>
+            快递详情：{this.props.location.query.content}
           </p>
         </div>
           <button
             className='TakeButton'
             onClick={this.ConfirmTake.bind(this)}>
             确认
+          </button>
+          <button
+            className='back'
+            onClick={this.back.bind(this)}>
+            返回
           </button>
         </body>
       </div>

@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router'
 
 class Express extends Component {
   static contextTypes = {
       router: PropTypes.object
-  }//for jmp
+  }
 
   static propTypes = {
     express: PropTypes.object.isRequired,
@@ -39,9 +40,15 @@ class Express extends Component {
 
   handleDeleteExpress () {
     if (this.props.onDeleteExpress) {
-      //this.props.onDeleteExpress(this.props.index)
-      this.context.router.history.push('/contact');
-      //for jmp
+
+      this.context.router.history.push({
+        pathname:'/contact',
+        query: {
+          username: this.props.express.username,
+          phone: this.props.express.phone,
+          content: this.props.express.content
+        }
+      })
     }
   }
 
@@ -65,11 +72,19 @@ class Express extends Component {
         <span
           onClick={this.handleDeleteExpress.bind(this)}
           className='express-delete'>
-          <Link to="/contact">接单</Link>
+          <button>接单</button>
         </span>
       </div>
     )
   }
 }
-
-export default Express
+/*<Link to={
+  {
+    pathname:"/contact",
+    query:{
+      index:express.username
+    },
+  }
+}>接单</Link>*/
+//need withRouter
+export default withRouter(Express)
