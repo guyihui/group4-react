@@ -52,6 +52,7 @@ function Have_Username(Username){
     }
     return res;
 }
+
 function signup(Username, Password){
     if(Have_Username(Username) != "-1"){
         return "Username is already existed.";
