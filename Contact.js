@@ -24,7 +24,7 @@ class Contact extends Component {
           <h1 className='Take-title'>Thanks for taking express</h1>
         </header>
         {/*pretend to have user, need to be fetched from main page*/}
-        <body>
+        <div>
         <div className='chosenOrder'>
           <p className='OrderDetail'>
             姓名：{this.props.location.query.username} <br/>
@@ -41,7 +41,7 @@ class Contact extends Component {
             onClick={this.back.bind(this)}>
             返回
           </button>
-        </body>
+          </div>
       </div>
     )
   }

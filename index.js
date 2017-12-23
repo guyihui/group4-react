@@ -8,13 +8,15 @@ import createBrowserHistory from 'history/createBrowserHistory'
 import ExpressApp from './ExpressApp'
 import './index.css';
 import Contact from './Contact';
+import LoginInput from './src/LoginInput'
 
 var history = createBrowserHistory()
 
 ReactDOM.render((
   <Router history={history}>
     <Switch>
-      <Route exact path="/" component={ExpressApp}/>
+      <Route exact path="/" component={LoginInput}/>
+      <Route exact path="/main" component={ExpressApp}/>
       <Route path="/contact" component={Contact}/>
     </Switch>
   </Router>
