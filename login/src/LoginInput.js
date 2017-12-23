@@ -15,7 +15,7 @@ class LoginInput extends Component {
         })
     }
 
-    handlePasswordChange (event) {
+    handleAddressChange (event) {
         this.setState({
             address: event.target.value
         })
@@ -45,7 +45,7 @@ class LoginInput extends Component {
                     <div className='login-field-input'>
                         <textarea
                             value={this.state.address}
-                            onChange={this.handlePasswordChange.bind(this)} />
+                            onChange={this.handleAddressChange.bind(this)} />
                     </div>
                 </div>
                 <div className='login-field-button'>
