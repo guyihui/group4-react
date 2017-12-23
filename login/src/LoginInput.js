@@ -5,7 +5,7 @@ class LoginInput extends Component {
         super()
         this.state = {
             phonenumber: '',
-            password: ''
+            address: ''
         }
     }
 
@@ -17,16 +17,16 @@ class LoginInput extends Component {
 
     handlePasswordChange (event) {
         this.setState({
-            password: event.target.value
+            address: event.target.value
         })
     }
 
     handleSubmit () {
         if (this.props.onSubmit) {
-            const { phonenumber, password } = this.state
-            this.props.onSubmit({phonenumber, password})
+            const { phonenumber, address } = this.state
+            this.props.onSubmit({phonenumber, address})
         }
-        this.setState({ phonenumber:'', password: '' })
+        this.setState({ phonenumber:'', address: '' })
     }
 
     render() {
@@ -41,10 +41,10 @@ class LoginInput extends Component {
                     </div>
                 </div>
                 <div className='login-field'>
-                    <span className='login-field-name'>密码：</span>
+                    <span className='login-field-name'>地址：</span>
                     <div className='login-field-input'>
-                        <input
-                            value={this.state.password}
+                        <textarea
+                            value={this.state.address}
                             onChange={this.handlePasswordChange.bind(this)} />
                     </div>
                 </div>
@@ -54,8 +54,6 @@ class LoginInput extends Component {
                         登陆
                     </button>
                 </div>
-                <div>{ this.state.phonenumber }</div>
-                <div>{ this.state.password }</div>
             </div>
         )
     }

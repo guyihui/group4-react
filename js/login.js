@@ -70,7 +70,7 @@ function login(Username, Password){
     }
     else{
         if(password != Password){
-            return "Wrong password!";
+            return "Wrong address!";
         }
         else{
             return "Login success!";
