@@ -8,9 +8,25 @@ class Contact extends Component {
       router: PropTypes.object
   }
 
+  constructor () {
+      super()
+      this.state = {
+          expresses: [],
+          show: false
+      }
+  }
+
   ConfirmTake () {
-    alert('请联系手机号为' + this.props.location.query.phone +
-        '的'+ this.props.location.query.username + '同学获取提货码，谢谢')
+    if (this.state.show === false){
+      this.setState((previousState) => {
+              return ({
+                  show: !previousState.show,
+              })
+          });
+    }
+    else{
+      alert("请联系该同学或点击返回看看其他快递哦>.<")
+    }
   }
 
   back (){
@@ -24,24 +40,34 @@ class Contact extends Component {
           <h1 className='Take-title'>Thanks for taking express</h1>
         </header>
         {/*pretend to have user, need to be fetched from main page*/}
-        <div>
         <div className='chosenOrder'>
-          <p className='OrderDetail'>
-            姓名：{this.props.location.query.username} <br/>
+          <b className='OrderName'>
+            姓名：{this.props.location.query.username}
+          </b>
+          <br/>
+          <b className='OrderDetail'>
             快递详情：{this.props.location.query.content}
-          </p>
+          </b>
         </div>
+        <div className='Button-field'>
           <button
             className='TakeButton'
             onClick={this.ConfirmTake.bind(this)}>
             确认
           </button>
           <button
-            className='back'
+            className='TakeButton'
             onClick={this.back.bind(this)}>
             返回
           </button>
-          </div>
+        </div>
+        <div className='contact-field'>
+          {this.state.show === true ? (
+            <b className='contactDetail'>
+            请联系手机号为{this.props.location.query.phone}的{this.props.location.query.username}同学获取提货码
+            </b>) : (null)
+          }
+        </div>
       </div>
     )
   }

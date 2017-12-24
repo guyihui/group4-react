@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router'
-
+import './index.css'
 class LoginInput extends Component {
     static contextTypes = {
         router: PropTypes.object
     }
-    
+
     constructor () {
         super()
         this.state = {

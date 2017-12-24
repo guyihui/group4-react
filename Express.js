@@ -39,13 +39,13 @@ class Express extends Component {
 
   handleDeleteExpress () {
     if (this.props.onDeleteExpress) {
-
       this.context.router.history.push({
         pathname:'/contact',
         query: {
           username: this.props.express.username,
           phone: this.props.express.phone,
-          content: this.props.express.content
+          content: this.props.express.content,
+          index: PropTypes.number
         }
       })
     }
@@ -71,7 +71,9 @@ class Express extends Component {
         <span
           onClick={this.handleDeleteExpress.bind(this)}
           className='express-delete'>
-          <button>接单</button>
+          <button className='confirmButton'>
+          接单
+          </button>
         </span>
       </div>
     )

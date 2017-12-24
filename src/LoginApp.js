@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import LoginInput from './LoginInput'
-
+import '.index.css'
 class LoginApp extends Component {
     constructor () {
         super()
