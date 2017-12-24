@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import './Express.css'
 
 class ExpressInput extends Component {
-	
+
   static propTypes = {
     onSubmit: PropTypes.func
   }
@@ -42,7 +43,7 @@ class ExpressInput extends Component {
    _saveUsername (username) {
      localStorage.setItem('username', username)
    }
- 
+
   _savePhone (phone) {
      localStorage.setItem('phone', phone)
    }
@@ -50,12 +51,12 @@ class ExpressInput extends Component {
 
    handleUsernameBlur (event) {
      this._saveUsername(event.target.value)
-   }    
+   }
 
    handlePhoneBlur (event) {
      this._savePhone(event.target.value)
-   }    
-    
+   }
+
    handleUsernameChange (event) {
         this.setState({
             username: event.target.value

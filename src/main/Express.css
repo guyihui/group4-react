@@ -14,32 +14,32 @@ body {
   padding: 20px;
 }
 
-/* 登陆框样式 */
-.login-input {
+/* 快递信息框样式 */
+.express-input {
   background-color: #fff;
   border: 1px solid #f1f1f1;
   padding: 20px;
   margin-bottom: 10px;
 }
 
-.login-field {
+.express-field {
   margin-bottom: 15px;
   display: flex;
 }
 
-.login-field .login-field-name {
+.express-field .express-field-name {
   display: flex;
   flex-basis: 100px;
   font-size: 14px;
 }
 
-.login-field .login-field-input {
+.express-field .express-field-input {
   display: flex;
   flex: 1;
 }
 
-.login-field-input input,
-.login-field-input textarea {
+.express-field-input input,
+.express-field-input textarea {
   border: 1px solid #e6e6e6;
   border-radius: 3px;
   padding: 5px;
@@ -49,16 +49,18 @@ body {
   flex: 1;
 }
 
-.login-field-input textarea {
+.express-field-input textarea {
   height: 100px;
 }
 
-.login-field-button {
+.express-field-button {
   display: flex;
   justify-content: flex-end;
 }
 
-.login-field-button button {
+
+.confirmButton,
+.express-field-button button {
   padding: 5px 10px;
   width: 80px;
   border: none;
@@ -69,19 +71,20 @@ body {
   cursor: pointer;
 }
 
-.login-field-button button:active {
+.express-field-button button:active {
   background: #13c1f1;
 }
 
-/* 登陆列表样式 */
-.login-list {
+/* 评论列表样式 */
+.express-list {
   background-color: #fff;
   border: 1px solid #f1f1f1;
   padding: 20px;
 }
 
-/* 登陆组件样式 */
-.login {
+/* 快递信息组件样式 */
+.express {
+  position: relative;
   display: flex;
   border-bottom: 1px solid #f1f1f1;
   margin-bottom: 10px;
@@ -89,16 +92,39 @@ body {
   min-height: 50px;
 }
 
-.login .login-user {
+.express-user {
   flex-shrink: 0;
 }
 
-.login span {
+.express-username {
+ color: #00a3cf;
+ font-style: italic;
+}
+
+.express-createdtime {
+  padding-right: 5px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 5px;
+  font-size: 12px;
+}
+
+.express-delete {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: transparent;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.express span {
   color: #00a3cf;
   font-style: italic;
 }
 
-.login p {
+.express p {
   margin: 0;
   /*text-indent: 2em;*/
 }

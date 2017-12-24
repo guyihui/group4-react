@@ -25,7 +25,7 @@ class Contact extends Component {
           });
     }
     else{
-      alert("请联系该同学或点击返回看看其他快递哦>.<")
+      alert("请联系该同学或点击返回看看别的哦>.<")
     }
   }
 

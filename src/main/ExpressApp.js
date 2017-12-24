@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ExpressInput from './ExpressInput'
 import ExpressList from './ExpressList'
+import './Express.css'
 
 class ExpressApp extends Component {
     constructor () {
@@ -38,19 +39,19 @@ class ExpressApp extends Component {
 	this.setState({ expresses })
 	this._saveExpresses(expresses)
     }
-	
+
   handleDeleteExpress (index) {
     const expresses = this.state.expresses
     expresses.splice(index, 1)
     this.setState({ expresses })
     this._saveExpresses(expresses)
   }
-  
+
   render() {
         return (
             <div className='wrapper'>
             <ExpressInput onSubmit={this.handleSubmitExpress.bind(this)} />
-        <ExpressList 
+        <ExpressList
 	  expresses={this.state.expresses}
           onDeleteExpress={this.handleDeleteExpress.bind(this)} />
         </div>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Express from './Express'
 import PropTypes from 'prop-types'
+import './Express.css'
 
 class ExpressList extends Component {
 
@@ -34,5 +35,3 @@ class ExpressList extends Component {
   }
 }
 export default ExpressList
-
-
